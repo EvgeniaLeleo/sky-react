@@ -4,6 +4,11 @@ class MinimaxInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = { curCount: props.min };
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(e) {
+    e.target.value = this.state.curCount;
   }
 
   increment = () => {
@@ -24,7 +29,7 @@ class MinimaxInput extends React.Component {
         <button type="button" onClick={this.decrement}>
           -
         </button>
-        <input value={this.state.curCount} className="input" />
+        <input value={this.state.curCount} onChange={this.onChange} />
         <button type="button" onClick={this.increment}>
           +
         </button>
