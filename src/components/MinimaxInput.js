@@ -10,18 +10,12 @@ class MinimaxInput extends React.Component {
     if (this.state.curCount === this.props.max) return;
 
     this.setState((prevState) => ({ curCount: prevState.curCount + 1 }));
-
-    const input = document.querySelector('.input');
-    input.value = this.state.curCount + 1;
   };
 
   decrement = () => {
     if (this.state.curCount === this.props.min) return;
 
     this.setState((prevState) => ({ curCount: prevState.curCount - 1 }));
-
-    const input = document.querySelector('.input');
-    input.value = this.state.curCount - 1;
   };
 
   render() {
@@ -30,7 +24,7 @@ class MinimaxInput extends React.Component {
         <button type="button" onClick={this.decrement}>
           -
         </button>
-        <input defaultValue={this.state.curCount} className="input" />
+        <input value={this.state.curCount} className="input" />
         <button type="button" onClick={this.increment}>
           +
         </button>
