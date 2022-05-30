@@ -8,19 +8,36 @@ class MinimaxInput extends React.Component {
   }
 
   onChange(e) {
-    e.target.value = this.state.curCount;
+    let curValue = e.target.value.replace(/\D/gi, '');
+
+    while (Number(curValue) > this.props.max) {
+      curValue = curValue.slice(0, -1);
+    }
+
+    this.setState(() => ({ curCount: Number(curValue) }));
   }
 
   increment = () => {
     if (this.state.curCount === this.props.max) return;
 
-    this.setState((prevState) => ({ curCount: prevState.curCount + 1 }));
+    this.setState((prevState) => ({
+      curCount: Number(prevState.curCount) + 1,
+    }));
   };
 
   decrement = () => {
     if (this.state.curCount === this.props.min) return;
 
-    this.setState((prevState) => ({ curCount: prevState.curCount - 1 }));
+    if (this.state.curCount < this.props.min) {
+      this.setState(() => ({
+        curCount: this.props.min,
+      }));
+      return;
+    }
+
+    this.setState((prevState) => ({
+      curCount: Number(prevState.curCount) - 1,
+    }));
   };
 
   render() {
