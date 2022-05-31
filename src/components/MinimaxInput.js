@@ -43,11 +43,19 @@ class MinimaxInput extends React.Component {
   render() {
     return (
       <div>
-        <button type="button" onClick={this.decrement}>
+        <button
+          type="button"
+          disabled={Number(this.state.curCount) <= this.props.min}
+          onClick={this.decrement}
+        >
           -
         </button>
         <input value={this.state.curCount} onChange={this.onChange} />
-        <button type="button" onClick={this.increment}>
+        <button
+          type="button"
+          disabled={Number(this.state.curCount) >= this.props.max}
+          onClick={this.increment}
+        >
           +
         </button>
       </div>
