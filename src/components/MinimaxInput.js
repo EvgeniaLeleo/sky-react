@@ -8,11 +8,9 @@ class MinimaxInput extends React.Component {
   }
 
   onChange(e) {
-    let curValue = e.target.value.replace(/\D/gi, '');
+    const curValue = e.target.value.replace(/\D/gi, '');
 
-    while (Number(curValue) > this.props.max) {
-      curValue = curValue.slice(0, -1);
-    }
+    if (Number(curValue) > this.props.max) return;
 
     this.setState(() => ({ curCount: Number(curValue) }));
   }
@@ -26,14 +24,7 @@ class MinimaxInput extends React.Component {
   };
 
   decrement = () => {
-    if (this.state.curCount === this.props.min) return;
-
-    if (this.state.curCount < this.props.min) {
-      this.setState(() => ({
-        curCount: this.props.min,
-      }));
-      return;
-    }
+    if (this.state.curCount <= this.props.min) return;
 
     this.setState((prevState) => ({
       curCount: Number(prevState.curCount) - 1,
@@ -43,6 +34,7 @@ class MinimaxInput extends React.Component {
   render() {
     return (
       <div>
+        <p>Вы можете ввести только числа от 0 до {this.props.max}:</p>
         <button
           type="button"
           disabled={Number(this.state.curCount) <= this.props.min}
