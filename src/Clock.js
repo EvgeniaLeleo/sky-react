@@ -17,67 +17,55 @@ export default class Clock extends React.Component {
     this.timerId = setInterval(() => this.increment(), 1000);
   }
 
-  // componentDidUpdate(prevState) {
-  //   if (
-  //     this.state.seconds !== prevState.seconds &&
-  //     this.state.minutes !== prevState.minutes &&
-  //     this.state.hours !== prevState.hours
-  //   ) {
-  //     const value = this.state.count;
-
-  //     this.setState(() => ({
-  //       seconds: prevState.seconds + value,
-  //       minutes: Math.ceil(prevState.minutes + value / 60),
-  //       hours: Math.ceil(prevState.hours + value / 3600),
-  //     }));
-  //   }
-  // }
+  componentDidUpdate() {}
 
   componentWillUnmount() {
     clearInterval(this.timerId);
   }
 
-  // getTime() {
-  //   const value = this.state.count;
-
-  //   this.setState((prevState) => ({
-  //     seconds: prevState.seconds + value,
-  //     minutes: Math.ceil(prevState.minutes + value / 60),
-  //     hours: Math.ceil(prevState.hours + value / 3600),
-  //   }));
-  // }
-
   increment() {
     this.setState((prevState) => ({
       count: prevState.count + 1,
-      seconds: prevState.seconds + 1,
-      //     minutes: Math.ceil(prevState.minutes + value / 60),
-      //     hours: Math.ceil(prevState.hours + value / 3600),
     }));
   }
 
   seconds() {
-    const isLessThan10 = this.state.seconds % 60 < 10;
-    if (isLessThan10) {
-      return `0${this.state.seconds % 60}`;
+    const sec = this.state.seconds + this.state.count;
+    const secIsLessThan10 = sec % 60 < 10;
+
+    if (secIsLessThan10) {
+      return `0${sec % 60}`;
     }
-    return this.state.seconds % 60;
+
+    return sec % 60;
   }
 
   minutes() {
-    const isLessThan10 = this.state.minutes % 60 < 10;
-    if (isLessThan10) {
-      return `0${this.state.minutes % 60}`;
+    const fullMinutes = Math.floor(
+      (this.state.seconds + this.state.count) / 60,
+    );
+    const min = this.state.minutes + fullMinutes;
+    const minIsLessThan10 = min % 60 < 10;
+
+    if (minIsLessThan10) {
+      return `0${min % 60}`;
     }
-    return this.state.minutes % 60;
+
+    return min % 60;
   }
 
   hours() {
-    const isLessThan10 = this.state.hours % 24 < 10;
-    if (isLessThan10) {
-      return `0${this.state.hours % 24}`;
+    const fullMinutes = Math.floor(
+      (this.state.seconds + this.state.count) / 60,
+    );
+    const hour = this.state.hours + Math.floor(fullMinutes / 60);
+    const hoursIsLessThan10 = hour % 24 < 10;
+
+    if (hoursIsLessThan10) {
+      return `0${hour % 24}`;
     }
-    return this.state.hours % 24;
+
+    return hour % 24;
   }
 
   render() {
