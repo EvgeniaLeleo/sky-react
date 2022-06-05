@@ -16,7 +16,7 @@ class MinimaxInput extends React.Component {
   }
 
   increment = () => {
-    if (this.state.curCount === this.props.max) return;
+    if (this.state.curCount >= this.props.max) return;
 
     this.setState((prevState) => ({
       curCount: Number(prevState.curCount) + 1,
