@@ -1,5 +1,7 @@
 import React from 'react';
 
+const interval = 100;
+
 export default class ReacTimer extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,7 @@ export default class ReacTimer extends React.Component {
   }
 
   handleStart = () => {
-    this.timerId = setInterval(() => this.increment(), 1000);
+    this.timerId = setInterval(() => this.increment(), 1000 / interval);
     this.setState(() => ({ isCounting: true }));
   };
 
@@ -42,7 +44,25 @@ export default class ReacTimer extends React.Component {
       <div className="ReacTimer">
         <h2>React Timer</h2>
         <h3>
-          <span>{value}</span>
+          <span>
+            {Math.floor(value / interval / 60 / 60) % 24 < 10 ? 0 : ''}
+            {`${Math.floor(value / interval / 60 / 60) % 24}`} :{' '}
+          </span>
+
+          <span>
+            {Math.floor(value / interval / 60) % 60 < 10 ? 0 : ''}
+            {`${Math.floor(value / interval / 60) % 60}`} :{' '}
+          </span>
+
+          <span>
+            {Math.floor(value / interval) % 60 < 10 ? 0 : ''}
+            {`${Math.floor(value / interval) % 60}`} .{' '}
+          </span>
+
+          <span>
+            {value % interval < 10 ? 0 : ''}
+            {`${value % interval}`}
+          </span>
         </h3>
         {!this.state.isCounting ? (
           <button type="button" onClick={this.handleStart}>

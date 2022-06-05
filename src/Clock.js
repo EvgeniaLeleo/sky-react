@@ -58,7 +58,8 @@ export default class Clock extends React.Component {
     const fullMinutes = Math.floor(
       (this.state.seconds + this.state.count) / 60,
     );
-    const hour = this.state.hours + Math.floor(fullMinutes / 60);
+    const hour =
+      this.state.hours + Math.floor((this.state.minutes + fullMinutes) / 60);
     const hoursIsLessThan10 = hour % 24 < 10;
 
     if (hoursIsLessThan10) {
@@ -74,7 +75,7 @@ export default class Clock extends React.Component {
         <h2>Clock</h2>
         <h3>
           <span>
-            {this.hours()} : {this.minutes()}: {this.seconds()}
+            {this.hours()} : {this.minutes()} : {this.seconds()}
           </span>
         </h3>
       </div>
