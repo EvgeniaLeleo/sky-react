@@ -11,8 +11,6 @@ export default class ReacTimer extends React.Component {
     };
   }
 
-  componentDidMount() {}
-
   componentWillUnmount() {
     clearInterval(this.timerId);
   }
@@ -32,13 +30,9 @@ export default class ReacTimer extends React.Component {
     this.setState(() => ({ count: 0, isCounting: false }));
   };
 
-  formatHours = () => {
-    const value = this.state.count;
-    return (
-      `${Math.floor(value / interval / 60 / 60) % 24 < 10 ? 0 : ''}` +
-      `${Math.floor(value / interval / 60 / 60) % 24}`
-    );
-  };
+  formatHours = () =>
+    `${Math.floor(this.state.count / interval / 60 / 60) % 24 < 10 ? 0 : ''}` +
+    `${Math.floor(this.state.count / interval / 60 / 60) % 24}`;
 
   formatMinutes = () =>
     `${Math.floor(this.state.count / interval / 60) % 60 < 10 ? 0 : ''}` +
@@ -48,7 +42,7 @@ export default class ReacTimer extends React.Component {
     `${Math.floor(this.state.count / interval) % 60 < 10 ? 0 : ''}` +
     `${Math.floor(this.state.count / interval) % 60}`;
 
-  formatDeciseconds = () =>
+  formatSantiseconds = () =>
     `${this.state.count % interval < 10 ? 0 : ''}` +
     `${this.state.count % interval}`;
 
@@ -64,7 +58,7 @@ export default class ReacTimer extends React.Component {
           <span>{this.formatHours()} : </span>
           <span>{this.formatMinutes()} : </span>
           <span>{this.formatSeconds()} . </span>
-          <span>{this.formatDeciseconds()}</span>
+          <span>{this.formatSantiseconds()}</span>
         </h3>
         {!this.state.isCounting ? (
           <button type="button" onClick={this.handleStart}>

@@ -17,10 +17,6 @@ export default class Pomodoro extends React.Component {
     };
   }
 
-  componentDidMount() {}
-
-  componentDidUpdate() {}
-
   componentWillUnmount() {
     clearInterval(this.timerId);
   }
@@ -74,6 +70,18 @@ export default class Pomodoro extends React.Component {
     }));
   };
 
+  formatMinutes = () =>
+    `${Math.floor(this.state.count / interval / 60) % 60 < 10 ? 0 : ''}` +
+    `${Math.floor(this.state.count / interval / 60) % 60}`;
+
+  formatSeconds = () =>
+    `${Math.floor(this.state.count / interval) % 60 < 10 ? 0 : ''}` +
+    `${Math.floor(this.state.count / interval) % 60}`;
+
+  formatSantiseconds = () =>
+    `${this.state.count % interval < 10 ? 0 : ''}` +
+    `${this.state.count % interval}`;
+
   decrement() {
     if (this.state.count === 0) {
       clearInterval(this.timerId);
@@ -91,27 +99,15 @@ export default class Pomodoro extends React.Component {
   }
 
   render() {
-    const value = this.state.count;
     const style = { width: '100px' };
 
     return (
       <div className="ReacTimer">
         <h2>Pomodoro Tracker</h2>
         <h3>
-          <span>
-            {Math.floor(value / interval / 60) % 60 < 10 ? 0 : ''}
-            {`${Math.floor(value / interval / 60) % 60}`} :{' '}
-          </span>
-
-          <span>
-            {Math.floor(value / interval) % 60 < 10 ? 0 : ''}
-            {`${Math.floor(value / interval) % 60}`} .{' '}
-          </span>
-
-          <span>
-            {value % interval < 10 ? 0 : ''}
-            {`${value % interval}`}
-          </span>
+          <span>{this.formatMinutes()} : </span>
+          <span>{this.formatSeconds()} . </span>
+          <span>{this.formatSantiseconds()}</span>
         </h3>
         {!this.state.isCountingWorking ? (
           <button type="button" style={style} onClick={this.handleStartWorking}>
