@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatMinutes, formatSeconds, formatSantiseconds } from './utils';
 
 const interval = 100;
 
@@ -70,18 +71,6 @@ export default class Pomodoro extends React.Component {
     }));
   };
 
-  formatMinutes = () =>
-    `${Math.floor(this.state.count / interval / 60) % 60 < 10 ? 0 : ''}` +
-    `${Math.floor(this.state.count / interval / 60) % 60}`;
-
-  formatSeconds = () =>
-    `${Math.floor(this.state.count / interval) % 60 < 10 ? 0 : ''}` +
-    `${Math.floor(this.state.count / interval) % 60}`;
-
-  formatSantiseconds = () =>
-    `${this.state.count % interval < 10 ? 0 : ''}` +
-    `${this.state.count % interval}`;
-
   decrement() {
     if (this.state.count === 0) {
       clearInterval(this.timerId);
@@ -105,9 +94,9 @@ export default class Pomodoro extends React.Component {
       <div className="ReacTimer">
         <h2>Pomodoro Tracker</h2>
         <h3>
-          <span>{this.formatMinutes()} : </span>
-          <span>{this.formatSeconds()} . </span>
-          <span>{this.formatSantiseconds()}</span>
+          <span>{formatMinutes(this.state.count, interval)} : </span>
+          <span>{formatSeconds(this.state.count, interval)} . </span>
+          <span>{formatSantiseconds(this.state.count, interval)}</span>
         </h3>
         {!this.state.isCountingWorking ? (
           <button type="button" style={style} onClick={this.handleStartWorking}>
