@@ -13,8 +13,6 @@ export default class ReacTimer extends React.Component {
 
   componentDidMount() {}
 
-  componentDidUpdate() {}
-
   componentWillUnmount() {
     clearInterval(this.timerId);
   }
@@ -34,35 +32,39 @@ export default class ReacTimer extends React.Component {
     this.setState(() => ({ count: 0, isCounting: false }));
   };
 
+  formatHours = () => {
+    const value = this.state.count;
+    return (
+      `${Math.floor(value / interval / 60 / 60) % 24 < 10 ? 0 : ''}` +
+      `${Math.floor(value / interval / 60 / 60) % 24}`
+    );
+  };
+
+  formatMinutes = () =>
+    `${Math.floor(this.state.count / interval / 60) % 60 < 10 ? 0 : ''}` +
+    `${Math.floor(this.state.count / interval / 60) % 60}`;
+
+  formatSeconds = () =>
+    `${Math.floor(this.state.count / interval) % 60 < 10 ? 0 : ''}` +
+    `${Math.floor(this.state.count / interval) % 60}`;
+
+  formatDeciseconds = () =>
+    `${this.state.count % interval < 10 ? 0 : ''}` +
+    `${this.state.count % interval}`;
+
   increment() {
     this.setState((prevState) => ({ count: prevState.count + 1 }));
   }
 
   render() {
-    const value = this.state.count;
     return (
       <div className="ReacTimer">
         <h2>React Timer</h2>
         <h3>
-          <span>
-            {Math.floor(value / interval / 60 / 60) % 24 < 10 ? 0 : ''}
-            {`${Math.floor(value / interval / 60 / 60) % 24}`} :{' '}
-          </span>
-
-          <span>
-            {Math.floor(value / interval / 60) % 60 < 10 ? 0 : ''}
-            {`${Math.floor(value / interval / 60) % 60}`} :{' '}
-          </span>
-
-          <span>
-            {Math.floor(value / interval) % 60 < 10 ? 0 : ''}
-            {`${Math.floor(value / interval) % 60}`} .{' '}
-          </span>
-
-          <span>
-            {value % interval < 10 ? 0 : ''}
-            {`${value % interval}`}
-          </span>
+          <span>{this.formatHours()} : </span>
+          <span>{this.formatMinutes()} : </span>
+          <span>{this.formatSeconds()} . </span>
+          <span>{this.formatDeciseconds()}</span>
         </h3>
         {!this.state.isCounting ? (
           <button type="button" onClick={this.handleStart}>
