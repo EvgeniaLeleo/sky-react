@@ -1,14 +1,11 @@
-import ReacTimer from './Reactimer';
-import Clock from './Clock';
-import Pomodoro from './Pomodoro';
+import Text from './Text';
+import Squares from './Squares';
 
 const App = () => (
   <div>
-    <ReacTimer />
+    <Text />
     <p />
-    <Clock />
-    <p />
-    <Pomodoro />
+    <Squares />
   </div>
 );
 
