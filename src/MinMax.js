@@ -23,9 +23,7 @@ class MinMax extends React.Component {
   render() {
     return (
       <div>
-        <p>
-          <em>Классовый MinMax</em>
-        </p>
+        <h3>Классовый MinMax</h3>
         <p>
           min: {this.props.min}, max: {this.props.max}
         </p>

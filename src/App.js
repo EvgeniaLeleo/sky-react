@@ -3,6 +3,7 @@ import Squares from './Squares';
 import MinMax from './MinMax';
 import MinMaxFn from './MinMaxFn';
 import MiniMaxInput from './MiniMaxInput';
+import MiniMaxInputFn from './MiniMaxInputFn';
 
 const min = 5;
 const max = 25;
@@ -18,6 +19,8 @@ const App = () => (
     <MinMaxFn min={min} max={max} />
     <p />
     <MiniMaxInput min={min} max={max} />
+    <p />
+    <MiniMaxInputFn min={min} max={max} />
   </div>
 );
 

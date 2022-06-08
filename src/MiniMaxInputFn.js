@@ -2,7 +2,7 @@ import React from 'react';
 
 const style = { display: 'inline-block', padding: '1px 5px', width: '30px' };
 
-class MiniMaxInput extends React.Component {
+class MiniMaxInputFn extends React.Component {
   constructor(props) {
     super(props);
     this.state = { curCount: props.min };
@@ -10,7 +10,6 @@ class MiniMaxInput extends React.Component {
   }
 
   onChange = (e) => {
-    // const num = e.target.value.replace(/\D/gi, '');
     const num = parseInt(e.target.value, 10);
     const curValue = Number.isNaN(num) ? this.props.min : num;
 
@@ -44,7 +43,7 @@ class MiniMaxInput extends React.Component {
   render() {
     return (
       <div>
-        <h3>Классовый MinMax</h3>
+        <h3>Функциональный MinMax</h3>
         <p>
           Возможные значения: от {this.props.min} до {this.props.max}:
         </p>
@@ -73,4 +72,4 @@ class MiniMaxInput extends React.Component {
   }
 }
 
-export default MiniMaxInput;
+export default MiniMaxInputFn;

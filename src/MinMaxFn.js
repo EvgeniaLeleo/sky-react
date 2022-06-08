@@ -17,9 +17,7 @@ const MinMaxFn = ({ min, max }) => {
 
   return (
     <div>
-      <p>
-        <em>Функциональный MinMax</em>
-      </p>
+      <h3>Функциональный MinMax</h3>
       <p>
         min: {min}, max: {max}
       </p>
