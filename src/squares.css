@@ -1,33 +1,37 @@
-.styleFlex = {
-  display: 'grid',
-  maxWidth: '320px',
-  gridTemplateColumns: '1fr 1fr 1fr',
-  gap: '10px',
-  justifyContent: 'space-between',
-};
-.styleSquare = {
-  boxSizing: 'border-box',
-  width: '100px',
-  height: '100px',
-  padding: '15px 5px',
-  fontFamily: 'Scada, sans-serif',
-  lineHeight: '1.5rem',
-  textAlign: 'center',
-  borderRadius: '5px',
-};
-.styleBlue = {
-  background: '#000986',
-  color: '#b9e1ff',
-};
-.styleGreen = {
-  gridColumn: '2/3',
-  background: '#009030',
-  color: '#cdffdd',
-  cursor: 'pointer',
-};
-.styleRed = {
-  gridColumn: '3/4',
-  background: '#ff5353',
-  color: '#ffecec',
-  cursor: 'pointer',
-};
+.styleFlex {
+  display: grid;
+  max-width: 320px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.styleSquare {
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  padding: 15px 5px;
+  font-family: Scada, sans-serif;
+  line-height: 1.5rem;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.styleBlue {
+  background: #000986;
+  color: #b9e1ff;
+}
+
+.styleGreen {
+  grid-column: 2/3;
+  background: #009030;
+  color: #cdffdd;
+  cursor: pointer;
+}
+
+.styleRed {
+  grid-column: 3/4;
+  background: #ff5353;
+  color: #ffecec;
+  cursor: pointer;
+}
