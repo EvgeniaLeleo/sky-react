@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const Text = () => {
-  const [isVisible, setIsVisible] = useState('true');
+  const [isVisible, setIsVisible] = useState(true);
   const style = { width: '100px' };
   const divStyle = { height: '5rem' };
 

@@ -6,11 +6,9 @@ class MiniMaxInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = { curCount: props.min };
-    this.onChange = this.onChange.bind(this);
   }
 
   onChange = (e) => {
-    // const num = e.target.value.replace(/\D/gi, '');
     const num = parseInt(e.target.value, 10);
     const curValue = Number.isNaN(num) ? this.props.min : num;
 
