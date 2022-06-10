@@ -46,9 +46,13 @@ const BookCart = () => {
                 />
               </td>
               <td>
-                <button type="button" onClick={() => deleteHandle(i)}>
+                <button
+                  className="removeButton"
+                  type="button"
+                  onClick={() => deleteHandle(i)}
+                >
                   X
-                </button>{' '}
+                </button>
               </td>
               <td>{book.quantity * book.price}</td>
             </tr>

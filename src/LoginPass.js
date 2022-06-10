@@ -1,26 +1,17 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+import useInputRequired from './userHook';
+import gendalf from './gendalf.png';
 
 const LoginPass = () => {
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
-  // const [isEmpty, setIsEmpty] = useState(true);
+  const inputChangeHandle = useInputRequired(true);
 
-  // console.log(login);
-  // console.log(password);
+  const loginStyle = `form-input ${
+    inputChangeHandle.errorText.login && 'border-red'
+  }`;
 
-  const loginChangeHandle = (e) => {
-    setLogin(e.target.value);
-  };
-
-  const passwordChangeHandle = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const inputBlurHandle = () => {};
-
-  // const useInputRequired = () => {
-  //
-  // };
+  const passwordStyle = `form-input ${
+    inputChangeHandle.errorText.password && 'border-red'
+  }`;
 
   return (
     <form>
@@ -29,26 +20,36 @@ const LoginPass = () => {
           Login
         </label>
         <input
-          className="form-input"
+          className={loginStyle}
           id="login"
           name="login"
-          value={login}
-          onChange={loginChangeHandle}
-          onBlur={() => inputBlurHandle}
+          value={inputChangeHandle.value.login}
+          onBlur={inputChangeHandle.onBlur}
+          onChange={inputChangeHandle.onChange}
         />
+        <div className="errorText">{inputChangeHandle.errorText.login}</div>
+        {inputChangeHandle.errorText.login && (
+          <img className="img" src={gendalf} alt="You shall not pass!" />
+        )}
       </div>
-      <div>
+
+      <div className="form-field">
         <label className="form-label" htmlFor="password">
           Password
         </label>
         <input
-          className="form-input"
+          className={passwordStyle}
           type="password"
           id="password"
           name="password"
-          value={password}
-          onChange={passwordChangeHandle}
+          value={inputChangeHandle.value.password}
+          onBlur={inputChangeHandle.onBlur}
+          onChange={inputChangeHandle.onChange}
         />
+        <div className="errorText">{inputChangeHandle.errorText.password}</div>
+        {inputChangeHandle.errorText.password && (
+          <img className="img" src={gendalf} alt="You shall not pass!" />
+        )}
       </div>
     </form>
   );
