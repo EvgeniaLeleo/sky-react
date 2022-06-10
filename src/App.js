@@ -1,6 +1,11 @@
 import './App.css';
 import BookCart from './BookCart';
+import LoginPass from './LoginPass';
 
-const App = () => <BookCart />;
+const App = () => (
+  <div>
+    <BookCart /> <LoginPass />
+  </div>
+);
 
 export default App;
