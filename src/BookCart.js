@@ -12,7 +12,7 @@ const BookCart = () => {
     );
   };
 
-  const deleteHandler = (i) => {
+  const deleteHandle = (i) => {
     const newBooks = books.concat();
     newBooks.splice(i, 1);
     setBooks(newBooks);
@@ -46,7 +46,7 @@ const BookCart = () => {
                 />
               </td>
               <td>
-                <button type="button" onClick={() => deleteHandler(i)}>
+                <button type="button" onClick={() => deleteHandle(i)}>
                   X
                 </button>{' '}
               </td>

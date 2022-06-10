@@ -160,3 +160,15 @@ h4 {
   flex-direction: column;
   margin-top: 20px;
 }
+
+.form-field {
+  margin-bottom: 10px;
+}
+
+.form-label {
+  margin-right: 10px;
+}
+
+.form-input {
+  padding: 2px 5px;
+}
