@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 const isPrime = (number) => {
   if (number < 2) return false
   if (number === 2) return true
@@ -7,6 +9,10 @@ const isPrime = (number) => {
   }
 
   return true
+}
+
+isPrime.propTypes = {
+  number: PropTypes.number.isRequired,
 }
 
 export default isPrime

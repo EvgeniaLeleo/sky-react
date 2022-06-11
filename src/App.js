@@ -5,6 +5,7 @@ import MinMax from './components/MinMax'
 import MinMaxFn from './components/MinMaxFn'
 import MiniMaxInput from './components/MiniMaxInput'
 import MiniMaxInputFn from './components/MiniMaxInputFn'
+import Textbooks from './components/Textbooks'
 
 const num = 48
 const min = 5
@@ -23,6 +24,9 @@ function App() {
       <MiniMaxInput min={min} max={max} />
       <p />
       <MiniMaxInputFn min={min} max={max} />
+      <p />
+      <Textbooks />
+      <p />
     </div>
   )
 }
