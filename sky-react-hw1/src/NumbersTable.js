@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import isPrime from './utils'
 
 function NumbersTable(props) {
@@ -37,6 +38,10 @@ function NumbersTable(props) {
       </div>
     </div>
   )
+}
+
+NumbersTable.propTypes = {
+  n: PropTypes.number.isRequired,
 }
 
 export default NumbersTable

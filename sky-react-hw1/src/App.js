@@ -1,7 +1,7 @@
 import './App.css'
 import NumbersTable from './NumbersTable'
 
-const num = 64
+const num = 48
 
 function App() {
   return (
