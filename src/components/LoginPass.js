@@ -1,18 +1,22 @@
-import useInputRequired from './userHook';
+import useForm from './userHook';
 import gendalf from './gendalf.png';
 
 const classNames = require('classnames');
 
 const LoginPass = () => {
-  const inputChangeHandle = useInputRequired(true);
-  const { errorText, onBlur, onChange, value } = inputChangeHandle;
+  const form = useForm({
+    email: { value: '', errorText: '', required: true },
+    password: { value: '', errorText: '', required: true },
+  });
+
+  const { onBlur, onChange, state } = form;
 
   const loginStyles = classNames('form-input', {
-    'border-red': inputChangeHandle.errorText.login,
+    'border-red': state.email.errorText,
   });
 
   const passwordStyles = classNames('form-input', {
-    'border-red': inputChangeHandle.errorText.password,
+    'border-red': state.password.errorText,
   });
 
   return (
@@ -23,14 +27,14 @@ const LoginPass = () => {
         </label>
         <input
           className={loginStyles}
-          id="login"
-          name="login"
-          value={value.login}
+          id="email"
+          name="email"
+          value={state.email.value}
           onBlur={onBlur}
           onChange={onChange}
         />
-        <div className="errorText">{errorText.login}</div>
-        {errorText.login && (
+        <div className="errorText">{state.email.errorText}</div>
+        {state.email.errorText && (
           <img className="img" src={gendalf} alt="You shall not pass!" />
         )}
       </div>
@@ -44,12 +48,12 @@ const LoginPass = () => {
           type="password"
           id="password"
           name="password"
-          value={value.password}
+          value={state.password.value}
           onBlur={onBlur}
           onChange={onChange}
         />
-        <div className="errorText">{errorText.password}</div>
-        {errorText.password && (
+        <div className="errorText">{state.password.errorText}</div>
+        {state.password.errorText && (
           <img className="img" src={gendalf} alt="You shall not pass!" />
         )}
       </div>

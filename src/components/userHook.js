@@ -1,44 +1,36 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 
-const useInputRequired = (required) => {
-  const [value, setValue] = useState({ login: '', password: '' });
-  const [errorText, setErrorText] = useState({ login: '', password: '' });
+const useForm = (formConfig) => {
+  const [state, setState] = useState(formConfig);
+
+  const onBlur = (e) => {
+    if (!e.target.value && state[e.target.name].required)
+      setState((prev) => ({
+        ...prev,
+        [e.target.name]: {
+          value: e.target.value,
+          errorText: `Введите ${e.target.name}! Иначе...`,
+          required: true,
+        },
+      }));
+  };
+
+  const onChange = (e) => {
+    setState((prev) => ({
+      ...prev,
+      [e.target.name]: {
+        value: e.target.value,
+        errorText: '',
+        required: true,
+      },
+    }));
+  };
 
   return {
-    onBlur: (e) => {
-      if (!e.target.value && required)
-        setErrorText((prev) => ({
-          ...prev,
-          [e.target.name]: 'Введите данные! Иначе...',
-        }));
-    },
-    onChange: (e) => {
-      setValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-      if (value && required)
-        setErrorText((prev) => ({
-          ...prev,
-          [e.target.name]: '',
-        }));
-    },
-    value,
-    errorText,
+    onBlur,
+    onChange,
+    state,
   };
 };
 
-useInputRequired.propTypes = {
-  required: PropTypes.bool,
-};
-
-useInputRequired.defaultProps = {
-  required: true,
-};
-
-// useInputRequired.propTypes = {
-//   errorText: PropTypes.number.isRequired,
-//   onBlur: PropTypes.func.isRequired,
-//   onChange: PropTypes.func.isRequired,
-//   value: PropTypes.string.isRequired,
-// };
-
-export default useInputRequired;
+export default useForm;
