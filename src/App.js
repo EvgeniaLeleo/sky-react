@@ -1,10 +1,10 @@
 import './App.css'
 import NumbersTable from './components/NumbersTable'
 import Legend from './components/Legend'
-import MinMax from './MinMax'
-import MinMaxFn from './MinMaxFn'
-import MiniMaxInput from './MiniMaxInput'
-import MiniMaxInputFn from './MiniMaxInputFn'
+import MinMax from './components/MinMax'
+import MinMaxFn from './components/MinMaxFn'
+import MiniMaxInput from './components/MiniMaxInput'
+import MiniMaxInputFn from './components/MiniMaxInputFn'
 
 const num = 48
 const min = 5
