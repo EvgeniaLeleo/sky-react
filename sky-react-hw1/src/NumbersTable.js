@@ -8,7 +8,6 @@ function NumbersTable(props) {
   for (let i = 0; i < n; i += 1) {
     arr.push(i)
   }
-
   return (
     <div className="container">
       <div className="numbers-table">
