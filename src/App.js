@@ -1,6 +1,6 @@
 import './App.css';
-import BookCart from './BookCart';
-import LoginPass from './LoginPass';
+import BookCart from './components/BookCart';
+import LoginPass from './components/LoginPass';
 
 const App = () => (
   <div>

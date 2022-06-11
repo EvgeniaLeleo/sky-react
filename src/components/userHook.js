@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const useInputRequired = (required) => {
   const [value, setValue] = useState({ login: '', password: '' });
@@ -24,5 +25,20 @@ const useInputRequired = (required) => {
     errorText,
   };
 };
+
+useInputRequired.propTypes = {
+  required: PropTypes.bool,
+};
+
+useInputRequired.defaultProps = {
+  required: true,
+};
+
+// useInputRequired.propTypes = {
+//   errorText: PropTypes.number.isRequired,
+//   onBlur: PropTypes.func.isRequired,
+//   onChange: PropTypes.func.isRequired,
+//   value: PropTypes.string.isRequired,
+// };
 
 export default useInputRequired;

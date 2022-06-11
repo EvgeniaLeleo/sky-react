@@ -1,17 +1,19 @@
-// import { useState } from 'react';
 import useInputRequired from './userHook';
 import gendalf from './gendalf.png';
 
+const classNames = require('classnames');
+
 const LoginPass = () => {
   const inputChangeHandle = useInputRequired(true);
+  const { errorText, onBlur, onChange, value } = inputChangeHandle;
 
-  const loginStyle = `form-input ${
-    inputChangeHandle.errorText.login && 'border-red'
-  }`;
+  const loginStyles = classNames('form-input', {
+    'border-red': inputChangeHandle.errorText.login,
+  });
 
-  const passwordStyle = `form-input ${
-    inputChangeHandle.errorText.password && 'border-red'
-  }`;
+  const passwordStyles = classNames('form-input', {
+    'border-red': inputChangeHandle.errorText.password,
+  });
 
   return (
     <form>
@@ -20,15 +22,15 @@ const LoginPass = () => {
           Login
         </label>
         <input
-          className={loginStyle}
+          className={loginStyles}
           id="login"
           name="login"
-          value={inputChangeHandle.value.login}
-          onBlur={inputChangeHandle.onBlur}
-          onChange={inputChangeHandle.onChange}
+          value={value.login}
+          onBlur={onBlur}
+          onChange={onChange}
         />
-        <div className="errorText">{inputChangeHandle.errorText.login}</div>
-        {inputChangeHandle.errorText.login && (
+        <div className="errorText">{errorText.login}</div>
+        {errorText.login && (
           <img className="img" src={gendalf} alt="You shall not pass!" />
         )}
       </div>
@@ -38,16 +40,16 @@ const LoginPass = () => {
           Password
         </label>
         <input
-          className={passwordStyle}
+          className={passwordStyles}
           type="password"
           id="password"
           name="password"
-          value={inputChangeHandle.value.password}
-          onBlur={inputChangeHandle.onBlur}
-          onChange={inputChangeHandle.onChange}
+          value={value.password}
+          onBlur={onBlur}
+          onChange={onChange}
         />
-        <div className="errorText">{inputChangeHandle.errorText.password}</div>
-        {inputChangeHandle.errorText.password && (
+        <div className="errorText">{errorText.password}</div>
+        {errorText.password && (
           <img className="img" src={gendalf} alt="You shall not pass!" />
         )}
       </div>
