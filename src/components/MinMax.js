@@ -1,4 +1,8 @@
-const MinMax = ({ min = 1, max, current, onChange }) => {
+import PropTypes from 'prop-types';
+
+const MinMax = (props) => {
+  const { min, max, current, onChange } = props;
+
   function applyCurrent(num) {
     const validNum = Math.max(min, Math.min(max, num));
     onChange(validNum);
@@ -29,6 +33,17 @@ const MinMax = ({ min = 1, max, current, onChange }) => {
       </button>
     </div>
   );
+};
+
+MinMax.propTypes = {
+  max: PropTypes.number.isRequired,
+  current: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  min: PropTypes.number,
+};
+
+MinMax.defaultProps = {
+  min: 1,
 };
 
 export default MinMax;
