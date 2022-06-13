@@ -17,9 +17,9 @@ Book.propTypes = {
 }
 
 Book.defaultProps = {
-  name: '<Unknown>',
-  year: '<Unknown>',
-  price: '<Unknown>',
+  name: '',
+  year: '',
+  price: '',
 }
 
 export default Book

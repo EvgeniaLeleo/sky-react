@@ -1,13 +1,10 @@
 import PropTypes from 'prop-types'
-import isPrime from './utils'
+import { isPrime, createArray } from './utils'
 
 function NumbersTable(props) {
-  const { n } = props
-  const arr = []
+  const { number } = props
+  const arr = createArray(number)
 
-  for (let i = 0; i < n; i += 1) {
-    arr.push(i)
-  }
   return (
     <div className="container">
       <div className="numbers-table">
@@ -40,7 +37,7 @@ function NumbersTable(props) {
 }
 
 NumbersTable.propTypes = {
-  n: PropTypes.number.isRequired,
+  number: PropTypes.number.isRequired,
 }
 
 export default NumbersTable

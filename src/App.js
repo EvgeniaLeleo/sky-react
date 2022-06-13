@@ -7,7 +7,7 @@ import MiniMaxInput from './components/MiniMaxInput'
 import MiniMaxInputFn from './components/MiniMaxInputFn'
 import Textbooks from './components/Textbooks'
 
-const num = 48
+const number = 48
 const min = 5
 const max = 25
 
@@ -15,18 +15,12 @@ function App() {
   return (
     <div>
       <Legend />
-      <NumbersTable n={num} />
-
+      <NumbersTable number={number} />
       <MinMax min={min} max={max} />
-      <p />
       <MinMaxFn min={min} max={max} />
-      <p />
       <MiniMaxInput min={min} max={max} />
-      <p />
       <MiniMaxInputFn min={min} max={max} />
-      <p />
       <Textbooks />
-      <p />
     </div>
   )
 }

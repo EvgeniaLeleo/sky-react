@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types'
-
 const isPrime = (number) => {
   if (number < 2) return false
   if (number === 2) return true
@@ -11,8 +9,14 @@ const isPrime = (number) => {
   return true
 }
 
-isPrime.propTypes = {
-  number: PropTypes.number.isRequired,
+const createArray = (n) => {
+  const arr = []
+
+  for (let i = 0; i < n; i += 1) {
+    arr.push(i)
+  }
+
+  return arr
 }
 
-export default isPrime
+export { isPrime, createArray }
