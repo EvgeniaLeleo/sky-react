@@ -1,27 +1,26 @@
 import { useState } from 'react';
 
 const useForm = (formConfig) => {
-  const [state, setState] = useState(formConfig);
+  const [fields, setFields] = useState(formConfig);
 
   const onBlur = (e) => {
-    if (!e.target.value && state[e.target.name].required)
-      setState((prev) => ({
+    if (!e.target.value && fields[e.target.name].required)
+      setFields((prev) => ({
         ...prev,
         [e.target.name]: {
-          value: e.target.value,
+          ...prev[e.target.name],
           errorText: `Введите ${e.target.name}! Иначе...`,
-          required: true,
         },
       }));
   };
 
   const onChange = (e) => {
-    setState((prev) => ({
+    setFields((prev) => ({
       ...prev,
       [e.target.name]: {
+        ...prev[e.target.name],
         value: e.target.value,
         errorText: '',
-        required: true,
       },
     }));
   };
@@ -29,7 +28,7 @@ const useForm = (formConfig) => {
   return {
     onBlur,
     onChange,
-    state,
+    fields,
   };
 };
 

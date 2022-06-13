@@ -9,14 +9,14 @@ const LoginPass = () => {
     password: { value: '', errorText: '', required: true },
   });
 
-  const { onBlur, onChange, state } = form;
+  const { onBlur, onChange, fields } = form;
 
-  const loginStyles = classNames('form-input', {
-    'border-red': state.email.errorText,
+  const loginClasses = classNames('form-input', {
+    error: fields.email.errorText,
   });
 
   const passwordStyles = classNames('form-input', {
-    'border-red': state.password.errorText,
+    error: fields.password.errorText,
   });
 
   return (
@@ -26,15 +26,15 @@ const LoginPass = () => {
           Login
         </label>
         <input
-          className={loginStyles}
+          className={loginClasses}
           id="email"
           name="email"
-          value={state.email.value}
+          value={fields.email.value}
           onBlur={onBlur}
           onChange={onChange}
         />
-        <div className="errorText">{state.email.errorText}</div>
-        {state.email.errorText && (
+        <div className="errorText">{fields.email.errorText}</div>
+        {fields.email.errorText && (
           <img className="img" src={gendalf} alt="You shall not pass!" />
         )}
       </div>
@@ -48,12 +48,12 @@ const LoginPass = () => {
           type="password"
           id="password"
           name="password"
-          value={state.password.value}
+          value={fields.password.value}
           onBlur={onBlur}
           onChange={onChange}
         />
-        <div className="errorText">{state.password.errorText}</div>
-        {state.password.errorText && (
+        <div className="errorText">{fields.password.errorText}</div>
+        {fields.password.errorText && (
           <img className="img" src={gendalf} alt="You shall not pass!" />
         )}
       </div>
