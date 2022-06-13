@@ -1,3 +1,5 @@
+const isEven = (number) => number % 2 === 0
+
 const isPrime = (number) => {
   if (number < 2) return false
   if (number === 2) return true
@@ -19,4 +21,4 @@ const createArray = (n) => {
   return arr
 }
 
-export { isPrime, createArray }
+export { isEven, isPrime, createArray }

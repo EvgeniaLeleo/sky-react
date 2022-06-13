@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { isPrime, createArray } from './utils'
+import { isEven, isPrime, createArray } from './utils'
 
 function NumbersTable(props) {
   const { number } = props
@@ -9,17 +9,17 @@ function NumbersTable(props) {
     <div className="container">
       <div className="numbers-table">
         {arr.map((el) => {
-          if (Number(el) % 2 === 0 && Number(el) !== 2) {
+          if (isPrime(Number(el))) {
             return (
-              <div className="cell even" key={el}>
+              <div className="cell prime" key={el}>
                 {el}
               </div>
             )
           }
 
-          if (isPrime(Number(el))) {
+          if (isEven(Number(el))) {
             return (
-              <div className="cell prime" key={el}>
+              <div className="cell even" key={el}>
                 {el}
               </div>
             )
