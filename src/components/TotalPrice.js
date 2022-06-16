@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
 const TotalPrice = ({ books }) => {
-  const total = books.reduce(
+  const totalPrice = books.reduce(
     (sum, book) => sum + book.price * book.quantity,
     0,
   );
-  return <span>{total}</span>;
+  return <span>{totalPrice}</span>;
 };
 
 TotalPrice.propTypes = {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import MinMax from './MinMax';
 
 const OrderDetail = (props) => {
@@ -19,6 +20,17 @@ const OrderDetail = (props) => {
       </div>
     </div>
   );
+};
+
+OrderDetail.propTypes = {
+  book: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    rest: PropTypes.number,
+    quantity: PropTypes.number,
+  }),
+  setQuantity: PropTypes.func.isRequired,
 };
 
 export default OrderDetail;
