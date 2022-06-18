@@ -8,25 +8,27 @@ const MinMax = (props) => {
     onChange(validNum);
   }
 
+  function parseCurrent(e) {
+    const num = parseInt(e.target.value, 10);
+    applyCurrent(Number.isNaN(num) ? min : num);
+  }
+
   const inc = () => applyCurrent(current + 1);
   const dec = () => applyCurrent(current - 1);
+  const style = { width: '2rem' };
 
   return (
     <div>
-      <button
-        className="removeButton"
-        type="button"
-        disabled={Number(current) <= min}
-        onClick={dec}
-      >
+      <button type="button" disabled={Number(current) <= min} onClick={dec}>
         -
       </button>
-      <button
-        className="addButton"
-        type="button"
-        disabled={Number(current) >= max}
-        onClick={inc}
-      >
+      <input
+        type="text"
+        style={style}
+        value={current}
+        onChange={parseCurrent}
+      />
+      <button type="button" disabled={Number(current) >= max} onClick={inc}>
         +
       </button>
     </div>
