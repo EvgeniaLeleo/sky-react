@@ -1,3 +1,31 @@
+.form-field {
+  /* margin-bottom: 50px; */
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.form-label {
+  margin-right: 10px;
+}
+
+.form-input {
+  padding: 2px 5px;
+  margin: 0 10px;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.errorText {
+  margin: 0 10px;
+}
+
+.img {
+  height: 100%;
+}
+
 /*  */
 .order {
   background: #e5e5e5;
