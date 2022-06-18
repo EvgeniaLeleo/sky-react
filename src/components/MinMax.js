@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 const MinMax = (props) => {
   const { min, max, current, onChange } = props;
 
+  const [value, setValue] = useState(current);
+
   function applyCurrent(num) {
     const validNum = Math.max(min, Math.min(max, num));
     onChange(validNum);
+    setValue(validNum);
   }
 
   function parseCurrent(e) {
@@ -25,8 +29,16 @@ const MinMax = (props) => {
       <input
         type="text"
         style={style}
-        value={current}
-        onChange={parseCurrent}
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value.replace(/\D/gi, ''));
+        }}
+        onBlur={parseCurrent}
+        onKeyDown={(e) => {
+          if (e.code === 'Enter') {
+            parseCurrent(e);
+          }
+        }}
       />
       <button type="button" disabled={Number(current) >= max} onClick={inc}>
         +
