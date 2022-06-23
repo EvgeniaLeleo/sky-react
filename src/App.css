@@ -3,6 +3,11 @@ body {
   font-weight: 600;
 }
 
+.button-submit {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -30,6 +35,32 @@ body {
   width: 3rem;
   height: 3rem;
   padding: 5px;
+}
+
+/* LoginPass */
+
+.form-field {
+  display: flex;
+  align-items: center;
+
+  height: 50px;
+}
+
+.form-label {
+  margin-right: 10px;
+}
+
+.form-input {
+  padding: 2px 5px;
+  margin: 0 10px;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.errorText {
+  margin: 0 10px;
 }
 
 /* app */

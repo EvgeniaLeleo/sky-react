@@ -22,4 +22,8 @@ const generateColorHex = () => {
   return '#' + hexColor;
 };
 
-export { generateColorHex, createArray };
+const isValidEmail = (email) => {
+  return email.match(/^[\w]{1}[\w-.]*@[\w-]+\.[a-z]{2,4}$/i);
+};
+
+export { generateColorHex, createArray, isValidEmail };
