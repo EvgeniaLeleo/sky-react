@@ -1,8 +1,14 @@
 import './App.css';
-import Order from './components/Order';
+import ColorTable from './components/ColorTable';
+
+const number = 27;
 
 function App() {
-  return <Order />;
+  return (
+    <div>
+      <ColorTable number={number} />
+    </div>
+  );
 }
 
 export default App;
