@@ -1,8 +1,16 @@
 import './App.css';
-import Order from './components/Order';
+import BookCart from './components/BookCart';
+import Select from './components/Select';
+import LoginPass from './components/LoginPass';
 
 function App() {
-  return <Order />;
+  return (
+    <div>
+      <BookCart />
+      <Select />
+      <LoginPass />
+    </div>
+  );
 }
 
 export default App;
