@@ -1,8 +1,49 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+}
+
+.button-submit {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.color-table {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-auto-rows: 1fr;
+  max-width: 800px;
+  gap: 5px;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-size: 12px;
+
+  width: 3rem;
+  height: 3rem;
+  padding: 5px;
+}
+
+/* LoginPass */
+
 .form-field {
-  /* margin-bottom: 50px; */
-  height: 50px;
   display: flex;
   align-items: center;
+
+  height: 50px;
 }
 
 .form-label {
@@ -22,9 +63,7 @@
   margin: 0 10px;
 }
 
-.img {
-  height: 100%;
-}
+/* app */
 
 /*  */
 .order {

@@ -1,13 +1,14 @@
 import './App.css';
-import BookCart from './components/BookCart';
-import Select from './components/Select';
+import ColorTable from './components/ColorTable';
 import LoginPass from './components/LoginPass';
+
+const number = 27;
 
 function App() {
   return (
     <div>
-      <BookCart />
-      <Select />
+      <ColorTable number={number} />
+      <p></p>
       <LoginPass />
     </div>
   );

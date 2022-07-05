@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import isValidEmail from './utils';
+import { isValidEmail } from './utils';
 
 const useForm = (formConfig) => {
   const [fields, setFields] = useState(formConfig);
@@ -27,15 +27,9 @@ const useForm = (formConfig) => {
   };
 
   const onBlur = (e) => {
-    validateInput(e);
-    if (!e.target.value && fields[e.target.name].required)
-      setFields((prev) => ({
-        ...prev,
-        [e.target.name]: {
-          ...prev[e.target.name],
-          errorText: `Введите ${e.target.name}`,
-        },
-      }));
+    if (fields[e.target.name].required) {
+      validateInput(e);
+    }
   };
 
   const onKeyDown = (e) => {
@@ -45,6 +39,8 @@ const useForm = (formConfig) => {
   };
 
   const onChange = (e) => {
+    e.target.style.background = 'transparent';
+    e.target.innerText = '';
     setFields((prev) => ({
       ...prev,
       [e.target.name]: {
