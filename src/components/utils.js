@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const createArray = (n) => {
   const arr = [];
 
@@ -27,3 +28,11 @@ const isValidEmail = (email) => {
 };
 
 export { generateColorHex, createArray, isValidEmail };
+||||||| 35db89f
+=======
+const isValidEmail = (email) => {
+  return email.match(/^[\w]{1}[\w-.]*@[\w-]+\.[a-z]{2,4}$/i);
+};
+
+export default isValidEmail;
+>>>>>>> main

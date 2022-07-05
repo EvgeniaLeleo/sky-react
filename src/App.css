@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
@@ -65,6 +66,37 @@ body {
 
 /* app */
 
+||||||| 35db89f
+=======
+.form-field {
+  /* margin-bottom: 50px; */
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.form-label {
+  margin-right: 10px;
+}
+
+.form-input {
+  padding: 2px 5px;
+  margin: 0 10px;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.errorText {
+  margin: 0 10px;
+}
+
+.img {
+  height: 100%;
+}
+
+>>>>>>> main
 /*  */
 .order {
   background: #e5e5e5;
