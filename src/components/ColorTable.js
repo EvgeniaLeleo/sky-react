@@ -7,7 +7,7 @@ function ColorTable(props) {
   const arr = createArray(number);
   const colorSquares = useRef([]);
 
-  const GenerateColorSquares = () => {
+  const generateColorSquares = () => {
     for (let i = 0; i < number; i++) {
       const color = generateColorHex();
       colorSquares.current[i].style.background = color;
@@ -36,7 +36,7 @@ function ColorTable(props) {
         })}
       </div>
       <br></br>
-      <button type="button" onClick={GenerateColorSquares}>
+      <button type="button" onClick={generateColorSquares}>
         Generate
       </button>
     </div>
